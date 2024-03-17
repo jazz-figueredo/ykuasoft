@@ -1,15 +1,22 @@
+import Index from './index';
+import Sidebar from "./Components/Sidebar";
+import NotFound from "./Components/NotFound"; // Importa tu componente de página no encontrada
+import React from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import Sidebar from "./Components/Sidebar"
-import { Component } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-class App extends Component {
-  render(){
-    return (
-      <div><Sidebar /></div>
-    );
-  }
+function App() {
+ 
+  return (
+      <Router>
+        <Route path="/index" component={Index} />
+        <Route path="/sidebar" component={Sidebar} />
+        <Route component={NotFound} />
+    </Router>
+  );
+  
 }
 
 export default App;
